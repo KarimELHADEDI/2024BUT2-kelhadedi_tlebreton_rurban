@@ -7,9 +7,16 @@ app.set('view engine', 'ejs');
 app.use (express.static('public'));
 
 app.get('/', function (req, res){
-    res.render('index')
-
-});
+  let data ={
+    personne : {
+      nom : "Bob",
+    },
+    personne2 : {
+      nom : "Charlie",
+      }
+    }
+    res.render('index', {data});
+})
 
 app.use(function (req, res){
     res.status(404).render('404');
