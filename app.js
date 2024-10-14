@@ -7,21 +7,11 @@ app.set('view engine', 'ejs');
 
 app.use (express.static('public'));
 
-app.get('/', function (req, res){
-  let data ={
-    personne : {
-      nom : "Bob",
-    },
-    personne2 : {
-      nom : "Charlie",
-      }
-    }
-    res.render('index', {data});
-})
 
 app.get('/', async function (req, res) {
   try {
-    const user = await userModel.getUserById(i);
+    const user = await userModel.getUserById(2);
+    console.log(user);
     res.render('index', {user});
   } catch (err) {
     console.log(err);
