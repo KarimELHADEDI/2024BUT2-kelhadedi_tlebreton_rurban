@@ -1,9 +1,10 @@
-<<<<<<< Updated upstream
 /*Navigation*/
 nav{
     display: flex;
     justify-content: space-between;
     height: 100px;
+    align-items: center;
+    border-bottom: 1px solid black;
     
 }
 
@@ -16,12 +17,11 @@ nav>form>input{
     
 }
 nav>form>input :hover{
-    background-color: #F8F2FF;
+    background-color: black;
 }
 
 .btn :hover{
     fill: grey;
-=======
 /* header */
 
 /* footer */
@@ -41,7 +41,6 @@ nav>form>input :hover{
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
->>>>>>> Stashed changes
 }
 
 /* Conteneur pour le contenu du footer */
