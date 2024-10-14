@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const userModel = require("./models/user.js")
 
 app.set('view engine', 'ejs');
 
@@ -17,6 +18,17 @@ app.get('/', function (req, res){
     }
     res.render('index', {data});
 })
+
+app.get('/', async function (req, res) {
+  try {
+    const user = await userModel.getUserById(i);
+    res.render('index', {user});
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Erreur lors de la récupération des données');
+  }
+});
+
 
 app.use(function (req, res){
     res.status(404).render('404');
