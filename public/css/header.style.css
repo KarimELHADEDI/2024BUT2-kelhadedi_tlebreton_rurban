@@ -1,0 +1,25 @@
+/*Navigation*/
+nav{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  border-bottom: 1px solid black;
+  
+}
+
+nav>form>input{
+  border-radius: 29px;
+  background: #F0E3FF;
+  height: 60px;
+  width: 570px;
+  stroke: none;
+  
+}
+nav>form>input :hover{
+  background-color: black;
+}
+
+.btn :hover{
+  fill: grey;
+/* header */
