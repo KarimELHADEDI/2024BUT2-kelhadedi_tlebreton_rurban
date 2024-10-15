@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userModel = require("./models/user.js")
+const http = require('http');
 
 app.set('view engine', 'ejs');
 
@@ -27,4 +28,17 @@ app.use(function (req, res){
 
 app.listen(3000, function(){
     console.log('Server is running on port 3000');
+});
+
+const server = http.createServer((req, res) => {
+  let path = "/views";
+  switch(req.url){
+    case '/':
+      path += '/index.ejs';
+      break;
+    case 'produit':
+      path += '/produit.ejs';
+      break;
+
+  }
 });
