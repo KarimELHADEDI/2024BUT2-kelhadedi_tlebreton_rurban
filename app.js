@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const userModel = require("./models/user_pg.js")
+const userModel = require("./models/user.js")
 const http = require('http');
 
 app.set('view engine', 'ejs');
@@ -20,6 +20,9 @@ app.get('/', async function (req, res) {
   }
 });
 
+app.get('/produit', function (req, res){
+  res.render('produit');
+})
 
 app.use(function (req, res){
     res.status(404).render('404');
@@ -30,15 +33,5 @@ app.listen(3000, function(){
     console.log('Server is running on port 3000');
 });
 
-const server = http.createServer((req, res) => {
-  let path = "/views";
-  switch(req.url){
-    case '/':
-      path += '/index.ejs';
-      break;
-    case 'produit':
-      path += '/produit.ejs';
-      break;
 
-  }
-});
+
