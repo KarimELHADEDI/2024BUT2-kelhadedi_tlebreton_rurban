@@ -23,6 +23,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     color: #000000;
+    cursor: pointer;
   }
   
   /* Colonnes du footer */
@@ -36,11 +37,13 @@
   .footer-column h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
+    cursor: pointer;
   }
   
   /* Style des paragraphes */
   .footer-column p {
     margin: 5px 0;
+    cursor: pointer;
   }
   
   /* Adaptation pour les petits écrans */
@@ -54,3 +57,28 @@
         margin-bottom: 20px;
     }
   }
+
+/* Section de réseaux sociaux */
+.footer-socials {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Icônes des réseaux sociaux */
+.social-icon {
+  width: 24px;
+  height: 120px;
+  transition: transform 0.2s;
+}
+
+/* Effet au survol */
+.social-icon:hover {
+  transform: scale(1.1);
+}
