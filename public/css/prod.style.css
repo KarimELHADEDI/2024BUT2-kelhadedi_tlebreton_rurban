@@ -1,0 +1,21 @@
+.hdp {
+    display: flex;
+    flex-direction: row;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.products{
+    background-color: #D8D7D7;
+    border-radius: 20px;
+    height: 30%;
+    width: 110%;
+    text-align: center;
+}
+
+#price{
+    background-color: #D8D7D7;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+}

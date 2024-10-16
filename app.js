@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const userModel = require("./models/user.js")
+const userModel = require("./models/user_pg.js")
 const http = require('http');
 
 app.set('view engine', 'ejs');
@@ -23,6 +23,8 @@ app.get('/', async function (req, res) {
 app.get('/produit', function (req, res){
   res.render('produit');
 })
+
+
 
 app.use(function (req, res){
     res.status(404).render('404');
