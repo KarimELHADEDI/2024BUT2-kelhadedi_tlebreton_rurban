@@ -5,7 +5,8 @@ nav{
   height: 100px;
   align-items: center;
   border-bottom: 1px solid black;
-  
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 nav>form>input{
@@ -14,12 +15,51 @@ nav>form>input{
   height: 60px;
   width: 570px;
   stroke: none;
-  
-}
-nav>form>input :hover{
-  background-color: black;
+  padding-left: 20px;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
-.btn :hover{
-  fill: grey;
+nav > form > input:hover {
+  background-color: #E6D5FF;
+}
+
+
+nav>form {
+  width: 570px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.formbtn{
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav > form > input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+nav>a>img{
+  height: 80px;
+  margin-right: 50px;
+}
+
+.navicon{
+  height: 60px;
+}
+
+.panier{
+  margin-left: -150px;
+  right: 80px;
 }

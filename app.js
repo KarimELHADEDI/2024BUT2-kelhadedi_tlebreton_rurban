@@ -28,7 +28,14 @@ app.get('/produit', function (req, res){
 
 app.use(function (req, res){
     res.status(404).render('404');
+});
 
+app.post('/login', function (req, res) {
+	res.render('login', {error : null});
+});
+
+app.get('/login', function (req, res) {
+	res.render('login', {error : null});
 });
 
 app.listen(3000, function(){
