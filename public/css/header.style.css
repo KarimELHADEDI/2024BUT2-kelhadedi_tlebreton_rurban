@@ -6,34 +6,39 @@ p {
   font-style: normal;
 }
 
-a{
+a {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;
 }
 
-h4{
+h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
-h3{
+h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
-h2{
+h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
+h1 {
+  font-family: "area-variable", sans-serif;
+  font-variation-settings: "slnt" 0, "wdth" 100, "wght" 100, "INKT" 0;
+}
+
 
 /*Navigation*/
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   height: 100px;
@@ -43,7 +48,7 @@ nav{
   padding-right: 60px;
 }
 
-nav>form>input{
+nav>form>input {
   border-radius: 29px;
   background: #F0E3FF;
   height: 60px;
@@ -56,7 +61,7 @@ nav>form>input{
   transition: all 0.3s ease;
 }
 
-nav > form > input:hover {
+nav>form>input:hover {
   background-color: #E6D5FF;
 }
 
@@ -70,7 +75,7 @@ nav>form {
 
 /* Bouton barre de recherche  */
 
-.formbtn{
+.formbtn {
   background: none;
   border: none;
   cursor: pointer;
@@ -81,38 +86,37 @@ nav>form {
   transform: translateY(-50%);
 }
 
-#searchicon{
+#searchicon {
   transition: all 300ms ease;
 }
 
-#searchbckg{
+#searchbckg {
   transition: all 300ms ease;
 }
 
-.formbtn :hover #searchicon{
+.formbtn :hover #searchicon {
   stroke: black;
 }
 
-.formbtn :hover #searchbckg{
+.formbtn :hover #searchbckg {
   fill: #E2E2E2;
 }
 
-nav > form > input:focus {
+nav>form>input:focus {
   outline: none;
   box-shadow: none;
 }
 
-nav>a>img{
+nav>a>img {
   height: 80px;
   margin-right: 50px;
 }
 
-.navicon{
+.navicon {
   height: 60px;
 }
 
-.panier{
+.panier {
   margin-left: -150px;
   right: 80px;
 }
-
