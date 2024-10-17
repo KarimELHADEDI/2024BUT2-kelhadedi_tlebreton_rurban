@@ -34,6 +34,8 @@ nav>form {
   align-items: center;
 }
 
+/* Bouton barre de recherche  */
+
 .formbtn{
   background: none;
   border: none;
@@ -43,6 +45,22 @@ nav>form {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+#searchicon{
+  transition: all 300ms ease;
+}
+
+#searchbckg{
+  transition: all 300ms ease;
+}
+
+.formbtn :hover #searchicon{
+  stroke: black;
+}
+
+.formbtn :hover #searchbckg{
+  fill: #E2E2E2;
 }
 
 nav > form > input:focus {
@@ -63,3 +81,4 @@ nav>a>img{
   margin-left: -150px;
   right: 80px;
 }
+
