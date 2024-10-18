@@ -36,6 +36,17 @@ app.get('/', async function (req, res) {
   }
 });
 
+
+
+
+
+
+
+
+
+
+
+
 app.get('/produit', function (req, res){
   res.render('produit');
 })
