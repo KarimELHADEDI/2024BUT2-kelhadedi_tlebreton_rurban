@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const userModel = require("./models/user_pg.js")
+const userModel = require("./models/user.js")
 const http = require('http');
 
 app.set('view engine', 'ejs');
