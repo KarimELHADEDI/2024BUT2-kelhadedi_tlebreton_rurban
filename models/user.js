@@ -12,4 +12,17 @@ async function getUserById(id) {
     });
 }
 
-module.exports = { getUserById };
+async function checkLogin(login){
+	sql = "SELECT * FROM utilisateur WHERE login = ?"
+	return new Promise((resolve, reject) => {
+		bdd.query(sql, login, (err, results) => {
+			if (err) {
+				return reject(err);
+			}
+			resolve(results)
+			});
+		});
+
+};
+
+module.exports = { getUserById, checkLogin };
