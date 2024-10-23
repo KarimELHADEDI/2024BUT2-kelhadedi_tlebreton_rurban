@@ -12,13 +12,15 @@
     text-align: center;
 }
 
-#price{
-
+.textcont{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #produit{
     margin-left: 30px;
     margin-top: 30px;
+    margin-right: 60px;
 }
 
 .retour{
@@ -36,9 +38,61 @@
 
 #desc{
     margin-top: 70px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
 .cont{
     background-color: #D8D7D7;
     border-radius: 10px;
+    display: inline-block;
+}
+
+.indic{
+    font-weight: bold;
+}
+
+#infos{
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 500px;
+    margin-left: 700px;
+    margin-top: 70px;
+    margin-right: 100px;
+    background-color: #D8D7D7;
+    border-radius: 20px;
+    font-family: "Poppins";
+    font-weight: 650;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.etoile{
+    font-size: 50px;
+    color: rgb(211, 181, 14);
+}
+
+#starz{
+    margin-left: 10px;
+}
+
+.txt{
+    margin-left: 10px;
+}
+
+
+#addtocart{
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    height: 63px;
+    border-radius: 20px;
+    background-color: #8275c5;
+    color: antiquewhite;
+    font-size: large;
+    font-family: "Poppins";
+    font-weight: 600;
 }
