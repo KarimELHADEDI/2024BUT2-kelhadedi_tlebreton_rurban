@@ -7,17 +7,13 @@
 
 .name{
     background-color: #D8D7D7;
-    border-radius: 20px;
-    height: 30%;
+    border-radius: 7px;
     width: 110%;
     text-align: center;
 }
 
 #price{
-    background-color: #D8D7D7;
-    border-radius: 20px;
-    width: 30%;
-    text-align: center;
+
 }
 
 #produit{
@@ -36,4 +32,13 @@
     width: 60px;
     height: 30px;
     margin-right: 8px;
+}
+
+#desc{
+    margin-top: 70px;
+}
+
+.cont{
+    background-color: #D8D7D7;
+    border-radius: 10px;
 }
