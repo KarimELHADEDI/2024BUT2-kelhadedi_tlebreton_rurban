@@ -26,22 +26,13 @@ app.get('/',  function (req, res) {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
 app.get('/produit', function (req, res){
   res.render('produit');
 })
 
-
+app.get('/catalogue', function (req, res){
+  res.render('catalogue');
+})
 
 app.get('/login', function (req, res) {
 	res.render('login', {error : null});
