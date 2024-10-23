@@ -1,8 +1,25 @@
 <%- include("header") -%>
+<%- include("nav") -%>
 <main>
-	<form method=”POST” action=”/login”>
-		<input type=”text” name=”login” />
-		<input type=”password” name=”password” />
-		<button type=”submit” value="Envoyer"/>
-	</form>
+    <form method="POST" action="/login">
+        <div class="login-content">
+            <div>
+                <label for="login">Adresse mail :</label>
+                <input type="text" id="login" name="login" placeholder="Enter votre adresse mail" required />
+            </div>
+            <div>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrer votre mot de passe" required />
+            </div>
+            <div>
+                <button type="submit" class="login-button">Se connecter</button>
+            </div>
+            <div>
+                <a href="/forgot-password">Mot de passe oublié ?</a>
+            </div>
+            <div>
+                <a href="/signup">Créer un compte</a>
+            </div>
+        </div>
+    </form>
 </main>
