@@ -4,6 +4,10 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
+#part2{
+    stroke: initial;
+    stroke-width: 3%;
+}
 
 .name{
     background-color: #D8D7D7;
@@ -55,10 +59,10 @@
 #infos{
     flex-direction: row;
     justify-content: flex-end;
-    width: 500px;
-    margin-left: 700px;
+    width: 400px;
+    margin-left: 150px;
     margin-top: 70px;
-    margin-right: 100px;
+    margin-right: 50px;
     background-color: #D8D7D7;
     border-radius: 20px;
     font-family: "Poppins";
