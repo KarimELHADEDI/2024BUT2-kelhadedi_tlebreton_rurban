@@ -7,13 +7,13 @@
 }
 
 .lp_title_text {
-    padding-left: 5rem;
+    padding-left: 8rem;
 }
 
 .lp_title_text>h1 {
     font-family: "area-variable", sans-serif;
     font-variation-settings: 'INKT' 40, 'wght' 700, 'wdth' 125, 'slnt' -7;
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .lp_categories{
@@ -25,24 +25,26 @@
     flex-wrap: wrap;
 }
 
-.lp_categories>div>img{
+.lp_categories>a>div>img{
     border: 3px solid black;
 }
 
-.lp_categories>div{
+.lp_categories>a>div{
     cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
-.lp_categories>div>p{
+.lp_categories>a>div>p{
     display: inline-block;
     padding: 0.5rem;
     transition: all 0.3s ease;
     margin: 0;
+    color: black;
+    text-decoration: none;
 }
 
-.lp_categories>div:hover > p {
+.lp_categories>a>div:hover > p {
     color: white;
     background-color: black;
 }
@@ -55,13 +57,7 @@
     transition: all 0.3s ease;
 }
 
-.lp_product>img{
-    height: 200px;
-    width: 250px;
-    object-fit: cover;
-    background: radial-gradient(50% 50% at 50% 50%, #FFF 12.5%, #E6DFFF 100%);
-    transition: background 0.3s ease;
-}
+
 
 .lp_product>p{
     margin: 0.4rem;
@@ -85,10 +81,23 @@
     padding: 3rem;
 }
 
-.lp_product:hover > img{
+.lp_product>img{
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
+    background: radial-gradient(50% 50% at 50% 50%, #FFF 12.5%, #E6DFFF 100%);
+    transition: background 0.3s ease;
+}
+
+.lp_product:hover > img {
     background: radial-gradient(50% 50% at 50% 50%, #EBE6FF 10.5%, #F5F5F5 100%);
 }
 
 .lp_product:hover{
     background-color: #F5F5F5;
+}
+
+
+.lp_categories a {
+    text-decoration: none;
 }
