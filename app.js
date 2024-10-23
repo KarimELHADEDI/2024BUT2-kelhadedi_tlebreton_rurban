@@ -31,8 +31,8 @@ app.get('/produit', function (req, res){
 })
 
 app.get('/catalogue', function (req, res){
-  res.render('catalogue');
-})
+	res.render('catalogue');
+  })
 
 app.get('/login', function (req, res) {
 	res.render('login', {error : null});
