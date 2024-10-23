@@ -21,19 +21,9 @@ app.use(session({
 app.use (express.static('public'));
 
 
-app.get('/', async function (req, res) {
-  if (!req.session.userId){
-    return res.redirect("/login");
+app.get('/',  function (req, res) {
+	res.render('index', {error : null});
 
-  }
-  try {
-    const user = await userModel.getUserById(req.session.userId);
-    console.log(user);
-    res.render('index', {user});
-  } catch (err) {
-    console.log(err);
-    res.status(500).send('Erreur lors de la récupération des données');
-  }
 });
 
 
