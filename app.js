@@ -31,8 +31,8 @@ app.get('/produit', function (req, res){
 })
 
 app.get('/catalogue', function (req, res){
-  res.render('catalogue');
-})
+	res.render('catalogue');
+  })
 
 app.get('/login', function (req, res) {
 	res.render('login', {error : null});
@@ -53,6 +53,9 @@ app.post('/login', function (req,res) {
 	res.render('login', {error : "Erreur dans le login/mdp"});
 });
 
+app.get('/register', function (req, res){
+	res.render('register');
+  })
 
 app.use(function (req, res){
   res.status(404).render('404');
