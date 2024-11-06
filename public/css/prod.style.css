@@ -4,9 +4,11 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
-#part2{
-    stroke: initial;
-    stroke-width: 3%;
+
+
+.partdeux{
+    margin-left: 100px;
+    border-top: 1px solid #000000;  
 }
 
 .name{
@@ -99,4 +101,13 @@
     font-size: large;
     font-family: "Poppins";
     font-weight: 600;
+}
+
+#titreprod{
+    font-weight: bold;
+}
+
+#descriptiondetail{
+    font-weight: 600;
+    max-width: 600px;
 }
