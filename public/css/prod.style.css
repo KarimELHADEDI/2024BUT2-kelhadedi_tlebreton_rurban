@@ -111,3 +111,7 @@
     font-weight: 600;
     max-width: 600px;
 }
+
+#picto-desc{
+    max-width: 50%;
+}
