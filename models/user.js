@@ -1,4 +1,3 @@
-const { password } = require("pg/lib/defaults.js");
 const bdd = require("./database.js");
 
 async function getUserById(id) {
