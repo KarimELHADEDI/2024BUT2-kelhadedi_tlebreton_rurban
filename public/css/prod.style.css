@@ -113,5 +113,28 @@
 }
 
 #picto-desc{
-    max-width: 50%;
+    max-width: 90%;
+}
+
+
+.secondpart{
+    display: flex;
+    flex-direction: row;
+}
+
+.map{
+    margin-top: 50px;
+}
+
+
+.partttrois{
+    margin-left: 100px;
+    border-top: 1px solid #000000;  
+}
+
+#video{
+    height: 200px;
+    width: 350px;
+    margin-top: 50px;
+    margin-left: 100px;
 }
