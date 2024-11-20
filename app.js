@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const userModel = require("./models/user.js")
 const http = require('http');
-
 const session = require('express-session');
+const db = require('./models/database.js');
 const md5 = require('md5')
 
 app.set('view engine', 'ejs');
@@ -31,8 +31,16 @@ app.get('/produit', function (req, res) {
 })
 
 app.get('/catalogue', function (req, res) {
-	res.render('catalogue');
-})
+    db.query('SELECT * FROM produit', (err, results) => {
+        if (err) {
+            console.error('Erreur lors de la récupération des produits :', err);
+            return res.status(500).render('error', { message: 'Erreur interne. Veuillez réessayer plus tard.' });
+        }
+
+        res.render('catalogue', { produits: results || [] });
+    });
+});
+
 
 app.get('/login', function (req, res) {
 	res.render('login', { error: null });
@@ -52,6 +60,20 @@ app.post('/login', function (req, res) {
 	};
 	res.render('login', { error: "Erreur dans le login/mdp" });
 });
+
+app.get('/catalogue/:type', function (req, res) {
+    const type = req.params.type;
+
+    db.query('SELECT * FROM produit WHERE type = ?', [type], (err, results) => {
+        if (err) {
+            console.error('Erreur lors de la récupération des produits par type:', err);
+            return res.status(500).render('error', { message: 'Erreur interne. Veuillez réessayer plus tard.' });
+        }
+
+        res.render('catalogue', { produits: results || [] });
+    });
+});
+
 
 app.get('/register', function (req, res) {
 	res.render('register');
@@ -79,3 +101,4 @@ app.use(function (req, res) {
 app.listen(3000, function () {
 	console.log('Server is running on port 3000');
 });
+

@@ -27,6 +27,7 @@
 
 .lp_categories>a>div>img{
     border: 3px solid black;
+    height: 300px;
 }
 
 .lp_categories>a>div{

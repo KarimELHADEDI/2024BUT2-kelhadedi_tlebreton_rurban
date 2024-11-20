@@ -1,4 +1,4 @@
-.retour{
+.retour {
     display: flex;
     align-items: center;
     color: black;
@@ -6,39 +6,41 @@
     width: fit-content;
 }
 
-.retour>h3{
+.retour>h3 {
     padding-left: 0.5rem;
 }
 
-.cat_list{
+.cat_list {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cat_item{
+.cat_item {
     width: 80%;
     height: 250px;
     background-color: #F8F2FF;
     display: flex;
     flex-direction: row;
+    margin: 2rem;
+    justify-content: space-between;
+    align-items: center; 
 }
-
-.cat_item>img{
+.cat_item>img {
     width: 315px;
     object-fit: cover;
     background: radial-gradient(50% 50% at 50% 50%, rgba(156, 128, 254, 0.15) 0%, #FFF 82%);
     margin-right: 1.5rem;
 }
 
-.cat_nfo{
-    width: fit-content;
+.cat_nfo {
+    width: auto;
+    margin-left: 0.5rem;
 }
 
-.cat_price{
-    top: 0px;
+.cat_price {
+    margin-left: auto;
     width: 20rem;
-    justify-content: flex-end;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +49,7 @@
     padding-left: 1rem;
 }
 
-.cat_price>button{
+.cat_price>button {
     all: unset;
     display: inline-block;
     cursor: pointer;
@@ -59,12 +61,19 @@
     width: fit-content;
 }
 
-.cat_price>button:hover{
+.cat_price>button:hover {
     color: black;
     background-color: white;
 }
-.cat_dispo{
+
+.cat_dispo {
     background-color: #EDDFFE;
     padding: 1rem;
     font-size: 0.8rem;
+}
+
+.cat_list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
