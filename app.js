@@ -87,29 +87,28 @@ app.get('/register', function (req, res) {
 
 // Gestion de l'inscription
 app.post('/register', async function (req, res) {
-    const { username, password, lastname, firstname, birthdate, email } = req.body;
+    console.log("foncttion execuytets");
+	const user = {
+			login: req.body.username,
+			password: md5(req.body.password), // Hash le mot de passe
+			lastname: req.body.lastname,
+			firstname: req.body.firstname,
+			birthdate: req.body.birthdate,
+			email: req.body.email
+	};
 
-    try {
-        // Hasher le mot de passe
-        const hashedPassword = md5(password);
+	console.log("Données utilisateur à insérer :", user); // Journalisation des données envoyées
 
-        // Créer l'utilisateur dans la base de données
-        await userModel.createUser({
-            username,
-            password: hashedPassword,
-            lastname,
-            firstname,
-            birthdate,
-            email
-        });
-
-        // Rediriger vers la page de connexion
-        res.redirect('/login');
-    } catch (err) {
-        console.error('Erreur lors de l’inscription :', err);
-        res.status(500).send("Erreur serveur. Veuillez réessayer.");
-    }
+	try {
+			const userId = await userModel.createUser(user);
+			console.log(`Utilisateur créé avec l'ID : ${userId}`);
+			res.redirect('/login');
+	} catch (err) {
+			console.error("Erreur dans POST /register :", err);
+			res.status(500).render('register', { error: "Erreur serveur. Veuillez réessayer." });
+	}
 });
+
 
 // Gestion des pages non trouvées
 app.use(function (req, res) {
@@ -120,4 +119,3 @@ app.use(function (req, res) {
 app.listen(3000, function () {
     console.log('Server is running on port 3000');
 });
-
