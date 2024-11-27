@@ -79,6 +79,10 @@ app.get('/register', function (req, res) {
 	res.render('register');
 })
 
+app.get('/panier', function (req, res) {
+	res.render('panier');
+})
+
 app.post('/register', function (req, res) {
 	let username = req.body.username;
 	let password = req.body.password;
