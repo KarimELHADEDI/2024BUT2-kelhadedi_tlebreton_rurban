@@ -27,9 +27,7 @@ app.get('/', function (req, res) {
     res.render('index', { error: null });
 });
 
-app.get('/produit', function (req, res) {
-    res.render('produit');
-});
+
 
 app.get('/catalogue', function (req, res) {
     db.query('SELECT * FROM produit', (err, results) => {
@@ -77,6 +75,19 @@ app.get('/catalogue/:type', function (req, res) {
         }
 
         res.render('catalogue', { produits: results || [] });
+    });
+});
+
+
+app.get('/produit/:id', function (req, res) {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM produit WHERE id = ?', [id], (err, results) => {
+        if (err) {
+            console.error('Erreur lors de la récupération des produits par type:', err);
+            return res.status(500).render('error', { message: 'Erreur interne. Veuillez réessayer plus tard.' });
+        }
+        res.render('produit', { produit: results[0] || [] });
     });
 });
 

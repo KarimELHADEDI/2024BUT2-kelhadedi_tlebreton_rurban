@@ -22,10 +22,10 @@
                         <div class="cat_price">
                             <p class="cat_dispo"><%= produit.etat %></p>
                             <p><%= produit.prix_location %>€/mois</p>
-                            <button onclick="window.location.href = '/produit';">En savoir plus</button>
+                            <button onclick="window.location.href = '/produit/<%= produit.id %>';">En savoir plus</button>
                         </div>
                     </div>
-                <% }); %>
+                <% }); %>   
             </div>
 
         </main>
