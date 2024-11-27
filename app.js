@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const userModel = require("./models/user.js")
+const userModel = require("./models/user.js");
 const http = require('http');
 const session = require('express-session');
 const db = require('./models/database.js');
@@ -73,6 +73,23 @@ app.post('/login', async function (req, res) {
     }
 });
 
+
+
+app.get('/gestion_locations', function (req, res) {
+    const type = req.params.type;
+
+    db.query('SELECT produit.id, produit.description, produit.marque, produit.prix_location, produit.etat FROM location INNER JOIN produit WHERE location.produit_id = produit.id', [type], (err, results) => {
+        if (err) {
+            console.error('Erreur lors de la récupération des produits par type:', err);
+            return res.status(500).render('error', { message: 'Erreur interne. Veuillez réessayer plus tard.' });
+        }
+
+        res.render('gestionloc', { produits: results || [] });
+    });
+});
+
+
+
 app.get('/catalogue/:type', function (req, res) {
     const type = req.params.type;
 
@@ -85,7 +102,6 @@ app.get('/catalogue/:type', function (req, res) {
         res.render('catalogue', { produits: results || [] });
     });
 });
-
 
 app.get('/produit/:id', function (req, res) {
     const id = req.params.id;
@@ -103,6 +119,7 @@ app.get('/produit/:id', function (req, res) {
 app.get('/register', function (req, res) {
     res.render('register');
 });
+
 
 app.get('/agentCrea', function (req, res) {
     res.render('agentCrea');
