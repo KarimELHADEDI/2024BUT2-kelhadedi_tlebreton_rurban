@@ -32,13 +32,13 @@ async function createUser(user) {
     return new Promise((resolve, reject) => {
         bdd.query(
             sql,
-            [user.login, user.password, user.lastname, user.firstname, user.birthdate, user.email, "client"],
+            [user.login, user.password, user.nom, user.prenom, user.ddn, user.email, user.type_utilisateur],
             (err, results) => {
                 if (err) {
-                    console.error("Erreur dans createUser:", err); // Log détaillé
+                    console.error("Erreur dans createUser:", err);
                     return reject(err);
                 }
-                resolve(results.insertId); // Retourner l'ID de l'utilisateur inséré
+                resolve(results.insertId);
             }
         );
     });
