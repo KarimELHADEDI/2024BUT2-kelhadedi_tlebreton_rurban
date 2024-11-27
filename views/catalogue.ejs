@@ -11,22 +11,45 @@
                 <h3>Retour</h3>
             </a>
 
-            <div class="cat_list">
-                <% produits.forEach(produit=> { %>
-                    <div class="cat_item">
-                        <img src="/img/equipement/<%= produit.id %>.webp" alt="">
-                        <div class="cat_nfo">
-                            <h2><%= produit.marque %> <%= produit.modele %></h2>
-                            <p><%= produit.description %></p>
-                        </div>
-                        <div class="cat_price">
-                            <p class="cat_dispo"><%= produit.etat %></p>
-                            <p><%= produit.prix_location %>€/mois</p>
-                            <button onclick="window.location.href = '/produit/<%= produit.id %>';">En savoir plus</button>
-                        </div>
+            <% if (userType==='agent' || userType==='admin' ) { %>
+                <div class="button_container">
+                    <button class="button" onclick="window.location.href = '/productAdd';">Ajouter un produit </button>
+                </div>
+                <% } %>
+
+                    <div class="cat_list">
+                        <% produits.forEach(produit=> { %>
+                            <div class="cat_item">
+                                <img src="/img/equipement/<%= produit.id %>.webp" alt="">
+                                <div class="cat_nfo">
+                                    <h2>
+                                        <%= produit.marque %>
+                                            <%= produit.modele %>
+                                    </h2>
+                                    <p>
+                                        <%= produit.description %>
+                                    </p>
+                                </div>
+                                <div class="cat_price">
+                                    <p class="cat_dispo">
+                                        <%= produit.etat %>
+                                    </p>
+                                    <p>
+                                        <%= produit.prix_location %>€/mois
+                                    </p>
+                                    <button onclick="window.location.href = '/produit/<%= produit.id %>';">En savoir
+                                        plus</button>
+                                        <% if (userType==='agent' || userType==='admin' ) { %> 
+                                            <form action="/produit/delete/<%= produit.id %>" method="POST">
+                                                <button type="submit" class="delete button">
+                                                    Supprimer
+                                                </button>
+                                            </form>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <% }); %>
                     </div>
-                <% }); %>   
-            </div>
 
         </main>
 

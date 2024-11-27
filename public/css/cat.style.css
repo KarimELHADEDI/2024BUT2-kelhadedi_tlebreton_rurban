@@ -77,3 +77,35 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.button{
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    background: #8275C5;
+    padding: 0.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.button:hover {
+    color: black;
+    background-color: white;
+}
+
+.button_container{
+    display: flex;
+    justify-content: center;
+}
+
+.delete{
+    margin: 1rem;
+    color: white;
+}
+
+.delete:hover {
+    background-color: red;
+    color: black;
+}
