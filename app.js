@@ -24,6 +24,10 @@ app.use(express.static('public'));
 
 // Routes principales
 app.get('/', function (req, res) {
+    if(!req.session.userId){
+        return res.redirect('/login');
+    }
+
     res.render('index', { error: null });
 });
 
@@ -44,6 +48,9 @@ app.get('/catalogue', function (req, res) {
 
 
 app.get('/login', function (req, res) {
+    if(req.session.userId){
+        return res.redirect('/');
+    }
     res.render('login', { error: null });
 });
 
