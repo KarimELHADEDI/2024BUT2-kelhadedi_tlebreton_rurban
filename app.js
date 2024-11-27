@@ -19,12 +19,19 @@ app.use(session({
 
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-    if(!req.session.userId){
-        return res.redirect('/login');
-    }
 
-    res.render('index', { error: null });
+app.get('/', function (req, res) {
+    res.render('index', { user: req.session.userId || null });
+});
+
+app.get('/logout', function (req, res) {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Erreur lors de la déconnexion :', err);
+            return res.status(500).send("Erreur lors de la déconnexion");
+        }
+        res.redirect('/login');
+    });
 });
 
 app.get('/produit', function (req, res) {
