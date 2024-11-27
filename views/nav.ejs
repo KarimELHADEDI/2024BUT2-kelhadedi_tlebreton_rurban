@@ -10,6 +10,8 @@
 
       <a href="/login"><img src="/img/svg_icon/profile.svg" alt="Profil utilisateur" class="navicon"></a>
       <a href="/panier"><img src="/img/svg_icon/panier.svg" alt="Panier" class="navicon panier"></a>
-      <a href="/logout"><img src="/img/svg_icon/logout.svg" alt="Déconnexion" class="navicon déconnexion"></a>
+      <% if (user) { %>
+        <a href="/logout"><img src="/img/svg_icon/logout.svg" alt="Déconnexion" class="navicon déconnexion"></a>
+      <% } %>
   
 </nav>

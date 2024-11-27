@@ -14,7 +14,7 @@
             <div class="cat_list">
                 <% produits.forEach(produit=> { %>
                     <div class="cat_item">
-                        <img src="/img/equipement/<%= produit.id %>.webp" alt="">
+                        <img class="image" src="/img/equipement/<%= produit.id %>.webp" alt="">
                         <div class="cat_nfo">
                             <h2><%= produit.marque %> <%= produit.modele %></h2>
                             <p><%= produit.description %></p>
