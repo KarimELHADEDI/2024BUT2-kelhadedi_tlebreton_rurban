@@ -1,7 +1,10 @@
 <%- include("header") -%>
     <%- include("nav") -%>
+    <head>
+        <link rel="stylesheet" href="css/productadd.style.css">
+    </head>
         <form method="POST" action="/productAdd">
-            <div class="productAdd_content">
+            <div class="productadd-content">
                 <div>
                     <label for="type">Type de machine :</label>
                     <select id="type" name="type" required>
@@ -30,7 +33,7 @@
                         placeholder="Entrez le prix de la location" />
                 </div>
                 <div>
-                    <button type="submit">Ajouter le produit</button>
+                    <button type="submit" class="productadd-button">Ajouter le produit</button>
                 </div>
             </div>
         </form>
