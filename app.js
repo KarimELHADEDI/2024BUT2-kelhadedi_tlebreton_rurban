@@ -18,7 +18,12 @@ app.use(session({
 }));
 
 app.use(express.static('public'));
-
+app.use((req, res, next) => {
+    // Rendre user et userType disponibles pour toutes les vues
+    res.locals.user = req.session.userId || null;
+    res.locals.userType = req.session.type_utilisateur || null;
+    next();
+});
 
 app.get('/', function (req, res) {
     res.render('index', { user: req.session.userId || null });
