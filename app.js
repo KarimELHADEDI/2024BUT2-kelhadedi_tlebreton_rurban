@@ -12,6 +12,13 @@ const checkAgentAdmin = (req, res, next) => {
     next();
 };
 
+const checkAdmin = (req, res, next) => {
+    if (!req.session.userId || req.session.type_utilisateur !== 'admin') {
+        return res.redirect('/');
+    }
+    next();
+};
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
@@ -122,21 +129,22 @@ app.get('/register', function (req, res) {
 });
 
 // Route pour la page de création d'agent (uniquement accessible par un admin)
-app.get('/agentCrea', function (req, res) {
-    res.render('agentCrea');
+app.get('/agentCrea', checkAdmin, function (req, res) {
+    res.render('agentCrea', {
+        user: req.session.userId || null,
+        userType: req.session.type_utilisateur || null
+    });
 });
 
 // Route vers la gestion de location (affiche les locations) EN CONSTRUCTION
-app.get('/gestion_locations', function (req, res) {
-    const type = req.params.type;
-
-    db.query('SELECT produit.id, produit.description, produit.marque, produit.prix_location, produit.etat FROM location INNER JOIN produit WHERE location.produit_id = produit.id', [type], (err, results) => {
+app.get('/gestion_locations', checkAgentAdmin, function (req, res) {
+    db.query('SELECT produit.id, produit.description, produit.marque, produit.prix_location, produit.etat FROM location INNER JOIN produit WHERE location.produit_id = produit.id', (err, results) => {
         if (err) {
             console.error('Erreur lors de la récupération des produits par type:', err);
             return res.status(500).render('error', { message: 'Erreur interne. Veuillez réessayer plus tard.' });
         }
 
-        res.render('gestionloc', { produits: results || [] });
+        res.render('gestionloc', { produits: results });
     });
 });
 
@@ -165,8 +173,8 @@ app.get('/gestionloc', function(req, res) {
 
         res.render('gestionloc', { 
             produits: results,
-            user: req.session.userId || null,
-            userType: req.session.type_utilisateur || null 
+            user: req.session.userId,
+            userType: req.session.type_utilisateur
         });
     });
 });
@@ -225,8 +233,6 @@ app.post('/register', async function (req, res) {
 });
 
 app.post('/agentCrea', async function (req, res) {
-    console.log('Headers:', req.headers);
-    console.log('Body brut:', req.body);
 
     const { login, password, lastname, firstname, birthdate, email } = req.body;
 

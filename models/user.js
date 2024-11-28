@@ -55,9 +55,45 @@ async function hasActiveRentals(userId) {
     });
 }
 
+// Mettre à jour un utilisateur
+const updateUser = async (id, userData) => {
+    const sql = `
+        UPDATE utilisateur 
+        SET password = ?,
+            nom = ?,
+            prenom = ?,
+            ddn = ?,
+            email = ?,
+            type_utilisateur = ?
+        WHERE id = ?`;
+
+    return new Promise((resolve, reject) => {
+        bdd.query(
+            sql,
+            [
+                userData.password ? md5(userData.password) : undefined,
+                userData.nom,
+                userData.prenom,
+                userData.ddn,
+                userData.email,
+                userData.type_utilisateur,
+                id
+            ],
+            (err, results) => {
+                if (err) {
+                    console.error("Erreur dans updateUser:", err);
+                    return reject(err);
+                }
+                resolve(results.affectedRows > 0);
+            }
+        );
+    });
+};
+
 module.exports = {
     getUserById,
     checkLogin,
     createUser,
-    hasActiveRentals
+    hasActiveRentals,
+    updateUser
 };

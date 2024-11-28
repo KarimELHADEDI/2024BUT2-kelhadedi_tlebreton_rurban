@@ -108,10 +108,12 @@ nav>a>img {
 }
 
 .navicon {
-  height: 60px;
+  height: 50px;
+  padding: 1rem;
 }
 
-.panier {
-  margin-left: -150px;
-  right: 80px;
+.icon_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
