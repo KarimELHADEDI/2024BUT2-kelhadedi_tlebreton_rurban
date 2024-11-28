@@ -1,7 +1,61 @@
 <%- include("header") -%>
-    <%- include("nav") -%>
-        <main>
-            
+<%- include("nav") -%>
+<head>
+    <link rel="stylesheet" href="css/panier.style.css">
+</head>
+<main>
+    <header>
+        <h1>Mon Panier</h1>
+    </header>
 
-        </main>
+    <% if (locations && locations.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Date de début</th>
+                    <th>Date de retour prévue</th>
+                    <th>Date de retour effective</th>
+                    <th>Prix total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% locations.forEach(location => { %>
+                    <tr>
+                        <td><%= location.produit_nom %></td>
+                        <td><%= location.date_debut %></td>
+                        <td><%= location.date_retour_prevue %></td>
+                        <td>
+                            <% if (location.date_retour_effective) { %>
+                                <%= location.date_retour_effective %>
+                            <% } else { %>
+                                En attente
+                            <% } %>
+                        </td>
+                        <td><%= location.prix_total.toFixed(2) %> €</td>
+                        <td>
+                            <form action="/panier/supprimer/<%= location.produit_id %>" method="POST" style="display:inline;">
+                                <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>Votre panier est vide.</p>
+    <% } %>
+
+    <!-- Formulaire de validation -->
+    <form action="/panier/valider" method="POST">
+        <label for="dateDebut">Date de début :</label>
+        <input type="date" name="dateDebut" required>
+
+        <label for="dateRetourPrevue">Date de retour prévue :</label>
+        <input type="date" name="dateRetourPrevue" required>
+        <button type="submit" class="reserver-button">Valider la réservation</button> 
+    </form>
+</main>
+
 <%- include("footer") -%>

@@ -90,19 +90,20 @@
 
 
 #addtocart{
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
     margin-bottom: 20px;
     height: 63px;
     border-radius: 20px;
-    background-color: #8275c5;
-    color: antiquewhite;
-    font-size: large;
-    font-family: "Poppins";
+    padding: 10px 15px;
+    background-color: #8275C5;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 200px;
     font-weight: 600;
-}
+    font-size: large;
+  }
 
 #titreprod{
     font-weight: bold;

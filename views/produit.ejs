@@ -52,7 +52,15 @@
                     <li>Sécurisant</li>
                     <li>Entrainement personnalisé</li>
                 </ul>
-                <button id="addtocart"> Ajouter au panier</button>
+                
+          <!-- Formulaire pour ajouter au panier -->
+    <form action="/panier" method="POST" id="add-to-cart-form">
+        <input type="hidden" name="produitId" value="<%= produit.id %>">
+        <input type="hidden" name="produitNom" value="<%= produit.marque %> <%= produit.modele %>">
+        <input type="hidden" name="prix" value="<%= produit.prix_location %>">
+
+        <button type="submit" id="addtocart">Ajouter au panier</button>
+    </form>
             </div>
         </container>
         <container class="secondpart">

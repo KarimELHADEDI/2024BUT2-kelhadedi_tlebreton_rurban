@@ -1,0 +1,15 @@
+.reserver-button {
+  margin-left: 100px;
+    margin-bottom: 20px;
+    height: 63px;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background-color: #8275C5;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 200px;
+    font-weight: 600;
+    font-size: large;
+  }
