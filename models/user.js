@@ -44,9 +44,20 @@ async function createUser(user) {
     });
 }
 
-// Exporter les fonctions
+// Verifie si l'utilisateur à des locations actives
+async function hasActiveRentals(userId) {
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT COUNT(*) as count FROM location WHERE id_utilisateur = ? AND date_fin > NOW()"; // Modifier id_user en id_utilisateur
+        bdd.query(sql, [userId], (err, results) => {
+            if (err) return reject(err);
+            resolve(results[0].count > 0);
+        });
+    });
+}
+
 module.exports = {
     getUserById,
     checkLogin,
     createUser,
+    hasActiveRentals
 };

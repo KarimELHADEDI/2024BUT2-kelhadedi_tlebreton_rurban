@@ -1,26 +1,42 @@
+<!-- Dans gestionloc.ejs -->
 <%- include("header") -%>
     <%- include("nav") -%>
-    <head>
-        <link rel="stylesheet" href="cat.style.css">
-    </head>
-    <div class="cat_list">
-        <% produits.forEach(produit=> { %>
-            <div class="cat_item">
-                <img class="image" src="/img/equipement/<%= produit.id %>.webp" alt="">
-                <div class="cat_nfo">
-                    <h2><%= produit.marque %> <%= produit.modele %></h2>
-                    <p><%= produit.description %></p>
+
+        <head>
+            <link rel="stylesheet" href="cat.style.css">
+        </head>
+
+        <div class="cat_list">
+            <% produits.forEach(loc=> { %>
+                <div class="cat_item">
+                    <img class="image" src="/img/equipement/<%= loc.produit_id %>.webp"
+                        alt="<%= loc.marque %> <%= loc.modele %>">
+                    <div class="cat_nfo">
+                        <h2>
+                            <%= loc.marque %>
+                                <%= loc.modele %>
+                        </h2>
+                        <p>
+                            <%= loc.description %>
+                        </p>
+                        <p>Du <%= loc.date_debut %> au <%= loc.date_fin %>
+                        </p>
+                    </div>
+                    <div class="cat_price">
+                        <p class="cat_dispo">
+                            <%= loc.etat %>
+                        </p>
+                        <p>
+                            <%= loc.prix_location %>€/mois
+                        </p>
+                        <form action="/location/delete/<%= loc.location_id %>" method="POST">
+                            <button type="submit">Confirmer le retour</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="cat_price">
-                    <p class="cat_dispo"><%= produit.etat %></p>
-                    <p><%= produit.prix_location %>€/mois</p>
-                    <button onclick="window.location.href = '/produit/<%= produit.id %>';">En savoir plus</button>
-                    <button class="refuser-location" onclick="window.location.href = '/produit/<%= produit.id %>';">Refuser la location</button>
-                </div>
-            </div>
-        <% }); %>   
-    </div>
+                <% }); %>
+        </div>
 
 
 
-<%- include("footer") -%>
+        <%- include("footer") -%>

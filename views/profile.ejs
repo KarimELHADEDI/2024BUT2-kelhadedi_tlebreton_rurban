@@ -1,0 +1,42 @@
+    <%- include("header") -%>
+    <%- include("nav") -%>
+    <div class="container">
+       <!-- Dans profile.ejs -->
+<h1>Mon Profil</h1>
+
+<!-- Formulaire de mise à jour -->
+<!-- <form action="/profile/update" method="POST">
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" value="<%= user.nom %>" required>
+    </div>
+    <div>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" value="<%= user.prenom %>" required>
+    </div>
+    <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+    </div>
+    <div>
+        <label for="ddn">Date de naissance :</label>
+        <input type="date" id="ddn" name="ddn" value="<%= user.ddn %>" required>
+    </div>
+    <div>
+        <label for="password">Nouveau mot de passe (optionnel) :</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <button type="submit">Mettre à jour</button>
+</form> -->
+
+<!-- Formulaire de suppression de compte -->
+<% if (userType !== 'agent' && userType !== 'admin') { %> 
+    <form action="/user/delete/<%= user.id %>" method="POST">
+        <button type="submit" class="delete-btn">
+            Supprimer mon compte
+        </button>
+    </form>
+<% } %>
+
+
+<%- include("footer") -%>
